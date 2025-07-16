@@ -4,5 +4,3 @@ kind: Kustomization
 namespace: external-secrets
 resources:
 - ../../bases/v0.18.2
-- cluster-secret-stores.yaml
-- issuer.yaml
