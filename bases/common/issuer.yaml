@@ -4,6 +4,8 @@ kind: Issuer
 metadata:
   name: bitwarden-ca-issuer
   namespace: external-secrets
+  annotations:
+    argocd.argoproj.io/sync-wave: "-20"
 spec:
   selfSigned: {}
 ---
@@ -12,6 +14,8 @@ kind: Certificate
 metadata:
   name: bitwarden-ca-certificate
   namespace: external-secrets
+  annotations:
+    argocd.argoproj.io/sync-wave: "-15"
 spec:
   # this is discouraged but required by ios
   commonName: cert-manager-bitwarden-tls
@@ -41,6 +45,8 @@ kind: Issuer
 metadata:
   name: bitwarden-server-issuer
   namespace: external-secrets
+  annotations:
+    argocd.argoproj.io/sync-wave: "-10"
 spec:
   ca:
     secretName: bitwarden-ca-certificate
@@ -50,6 +56,8 @@ kind: Certificate
 metadata:
   name: bitwarden-tls-certs
   namespace: external-secrets
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   secretName: bitwarden-tls-certs
   dnsNames:
