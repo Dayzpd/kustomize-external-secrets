@@ -3,5 +3,3 @@ kind: Kustomization
 namespace: external-secrets
 resources:
 - namespace.yaml
-- issuer.yaml
-
