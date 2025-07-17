@@ -4,4 +4,8 @@ kind: Kustomization
 namespace: external-secrets
 resources:
 - ../../bases/v0.18.2
-- cluster-secret-stores.yaml
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/provider/vault/auth/jwt/path
+      value: prodlab-jwt
