@@ -7,5 +7,12 @@ resources:
 patches:
 - patch: |-
     - op: replace
+      path: /spec/provider/vault/path
+      value: testlab-kv
+    - op: replace
       path: /spec/provider/vault/auth/jwt/path
       value: testlab-jwt
+  target:
+    group: external-secrets.io
+    kind: ClusterSecretStore
+    name: vault
